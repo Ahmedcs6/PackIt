@@ -1,15 +1,15 @@
+using PackIT.Domain.Events;
 using PackIT.Domain.Exceptions;
 using PackIT.Domain.ValueObjects;
 using PackIT.Shared.Abstraction.Domain;
 
 namespace PackIT.Domain.Entities;
 
-public class PackingList : AggregateRoot<Guid>
+public class PackingList : AggregateRoot<PackingListId>
 {
-	public Guid Id { get; }
 	private PackingListName _name;
 	private Localization _localization;
-	private readonly LinkedList<PackingItem> _items = new();
+	private LinkedList<PackingItem> _items = new();
 
 	internal PackingList(
 		Guid id,
@@ -33,5 +33,36 @@ public class PackingList : AggregateRoot<Guid>
 		}
 
 		_items.AddLast(item);
+		AddEvent(new PackingItemAdded(this, item));
+	}
+
+	public void AddItems(IEnumerable<PackingItem> items)
+	{
+		foreach (var item in items)
+		{
+			AddItem(item);
+		}
+	}
+
+	public void PackItem(string itemName)
+	{
+		var item = GetItem(itemName);
+		// var packedItem = item with { IsPacked = true };
+		PackingItem packedItem = new(item.Name, item.Quantity, true);
+		_items.Find(item).Value = packedItem;
+		AddEvent(new PackingItemPacked(this, item));
+	}
+
+	public void RemoveItem(string itemName)
+	{
+		var item = GetItem(itemName);
+		_items.Remove(item);
+		AddEvent(new PackingItemRemoved(this, item));
+	}
+
+	private PackingItem GetItem(string itemName)
+	{
+		var item = _items.SingleOrDefault(i => i.Name == itemName);
+		return item ?? throw new PackingItemNotFoundException(itemName);
 	}
 }
