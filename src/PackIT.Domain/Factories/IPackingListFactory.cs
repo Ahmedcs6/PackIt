@@ -1,3 +1,4 @@
+using PackIT.Domain.Consts;
 using PackIT.Domain.Entities;
 using PackIT.Domain.ValueObjects;
 
@@ -11,6 +12,7 @@ public interface IPackingListFactory
 		PackingListName name,
 		TravelDays days,
 		Gender gender,
+		Temperature temperature,
 		Localization localization
 	);
 }
