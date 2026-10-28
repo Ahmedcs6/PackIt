@@ -17,11 +17,16 @@ public class PackingList : AggregateRoot<PackingListId>
 		Localization localization,
 		LinkedList<PackingItem> items
 	)
+		: this(id, name, localization)
+	{
+		AddItems(items);
+	}
+
+	internal PackingList(Guid id, string name, Localization localization)
 	{
 		Id = id;
 		_name = name;
 		_localization = localization;
-		_items = items;
 	}
 
 	public void AddItem(PackingItem item)
@@ -47,8 +52,8 @@ public class PackingList : AggregateRoot<PackingListId>
 	public void PackItem(string itemName)
 	{
 		var item = GetItem(itemName);
-		// var packedItem = item with { IsPacked = true };
-		PackingItem packedItem = new(item.Name, item.Quantity, true);
+		var packedItem = item with { IsPacked = true };
+		// PackingItem packedItem = new(item.Name, item.Quantity, true);
 		_items.Find(item).Value = packedItem;
 		AddEvent(new PackingItemPacked(this, item));
 	}

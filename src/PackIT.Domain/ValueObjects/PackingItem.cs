@@ -2,7 +2,7 @@ using PackIT.Domain.Exceptions;
 
 namespace PackIT.Domain.ValueObjects;
 
-public class PackingItem
+public record PackingItem
 {
 	public string Name { get; }
 	public uint Quantity { get; }
