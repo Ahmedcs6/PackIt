@@ -19,14 +19,3 @@ public record Temperature
 
 	public static implicit operator Temperature(double temp) => new(temp);
 }
-
-internal class InvalidTemperatureException : PackItException
-{
-	public InvalidTemperatureException(double value)
-		: base($"Value '{value}' is invalid temperature.")
-	{
-		Value = value;
-	}
-
-	public double Value { get; }
-}
