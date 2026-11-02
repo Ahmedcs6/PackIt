@@ -1,3 +1,4 @@
+using PackIT.Domain.Exceptions;
 using PackIT.Shared.Abstraction.Exceptions;
 
 namespace PackIT.Domain.ValueObjects;

@@ -54,7 +54,7 @@ public class PackingList : AggregateRoot<PackingListId>
 		var item = GetItem(itemName);
 		var packedItem = item with { IsPacked = true };
 		// PackingItem packedItem = new(item.Name, item.Quantity, true);
-		_items.Find(item).Value = packedItem;
+		_items.Find(item)!.Value = packedItem;
 		AddEvent(new PackingItemPacked(this, item));
 	}
 

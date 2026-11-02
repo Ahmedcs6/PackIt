@@ -1,15 +1,20 @@
 using PackIT.Domain.Consts;
 using PackIT.Domain.Entities;
+using PackIT.Domain.Policies;
 using PackIT.Domain.ValueObjects;
 
 namespace PackIT.Domain.Factories
 {
-	public class PackingListFactory : IPackingListFactory
+	public class PackingListFactory(IEnumerable<IPackingItemsPolycies> policies)
+		: IPackingListFactory
 	{
-		public PackingList Create(PackingListId id, PackingListName name, Localization localization)
-		{
-			throw new NotImplementedException();
-		}
+		private readonly IEnumerable<IPackingItemsPolycies> _policies = policies;
+
+		public PackingList Create(
+			PackingListId id,
+			PackingListName name,
+			Localization localization
+		) => new(id, name, localization);
 
 		public PackingList CreateWithDefaultItems(
 			PackingListId id,
@@ -20,7 +25,12 @@ namespace PackIT.Domain.Factories
 			Localization localization
 		)
 		{
-			throw new NotImplementedException();
+			var data = new PolicyData(days, gender, temperature, localization);
+			var applicablePolicies = _policies.Where(p => p.IsApplicable(data));
+			var items = applicablePolicies.SelectMany(p => p.GenerateItems(data));
+			var packingList = new PackingList(id, name, localization);
+			packingList.AddItems(items);
+			return packingList;
 		}
 	}
 }
