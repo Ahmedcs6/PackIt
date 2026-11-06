@@ -3,10 +3,10 @@ using PackIT.Domain.ValueObjects;
 
 namespace PackIT.Domain.Repositories;
 
-public interface IPackingListRepositories
+public interface IPackingListRepository
 {
 	Task AddAsync(PackingList packingList);
 	Task<PackingList> GetAsync(PackingListId id);
 	Task UpdateAsync(PackingList packingList);
-	Task DeleteAsync(PackingListId id);
+	Task DeleteAsync(PackingList packingList);
 }
