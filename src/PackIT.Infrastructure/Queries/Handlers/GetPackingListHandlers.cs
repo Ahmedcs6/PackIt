@@ -1,5 +1,6 @@
 using PackIT.Application.DTO;
 using PackIT.Application.Queries;
+using PackIT.Infrastructure.EF.Models;
 using PackIT.Shared.Abstraction.Queries;
 
 namespace PackIT.Infrastructure.Queries.Handlers;
