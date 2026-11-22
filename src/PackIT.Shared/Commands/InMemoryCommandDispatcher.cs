@@ -3,14 +3,10 @@ using PackIT.Shared.Abstraction.Commands;
 
 namespace PackIT.Shared.Commands;
 
-internal sealed class InMemoryCommandDispatcher : ICommandDispatcher
+internal sealed class InMemoryCommandDispatcher(IServiceProvider serviceProvider)
+	: ICommandDispatcher
 {
-	private readonly IServiceProvider _serviceProvider;
-
-	public InMemoryCommandDispatcher(IServiceProvider serviceProvider) =>
-		_serviceProvider = serviceProvider;
-
-	public IServiceProvider ServiceProvider { get; }
+	private readonly IServiceProvider _serviceProvider = serviceProvider;
 
 	public async Task DispatchAsync<TCommand>(TCommand command)
 		where TCommand : class, ICommand

@@ -18,6 +18,6 @@ public class InMemoryQueryDispatcher(IServiceProvider serviceProvider) : IQueryD
 		return await (Task<TResult>)
 			handlertype
 				.GetMethod(nameof(IQueryHandler<IQuery<TResult>, TResult>.HandleAsync))
-				?.Invoke(handler, [query]);
+				?.Invoke(handler, [query])!;
 	}
 }
