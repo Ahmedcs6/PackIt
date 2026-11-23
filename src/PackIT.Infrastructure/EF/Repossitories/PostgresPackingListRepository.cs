@@ -11,12 +11,9 @@ internal sealed class PostgresPackingListRepository : IPackingListRepository
 	private readonly DbSet<PackingList> _packingLists;
 	private readonly WriteDbContext _writeDbContext;
 
-	public PostgresPackingListRepository(
-		DbSet<PackingList> packingLists,
-		WriteDbContext writeDbContext
-	)
+	public PostgresPackingListRepository(WriteDbContext writeDbContext)
 	{
-		_packingLists = packingLists;
+		_packingLists = writeDbContext.PackingLists;
 		_writeDbContext = writeDbContext;
 	}
 
