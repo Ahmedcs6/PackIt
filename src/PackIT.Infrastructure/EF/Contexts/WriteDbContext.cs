@@ -9,7 +9,7 @@ internal sealed class WriteDbContext : DbContext
 {
 	public DbSet<PackingList> PackingLists { get; set; }
 
-	public WriteDbContext(DbContextOptions<ReadDbContext> options)
+	public WriteDbContext(DbContextOptions<WriteDbContext> options)
 		: base(options) { }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
