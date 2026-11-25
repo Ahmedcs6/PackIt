@@ -6,7 +6,7 @@ public abstract class AggregateRoot<T>
 	public int Version { get; protected set; }
 
 	private bool _versionIncremented;
-	private List<IDomainEvent> _events;
+	private readonly List<IDomainEvent> _events = new();
 	public IEnumerable<IDomainEvent> Events => _events;
 
 	protected void IncrementVersion()

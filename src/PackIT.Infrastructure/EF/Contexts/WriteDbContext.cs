@@ -14,7 +14,7 @@ internal sealed class WriteDbContext : DbContext
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.HasDefaultSchema("packing");
+		modelBuilder.HasDefaultSchema("Packing");
 		var configuration = new WriteConfiguration();
 		modelBuilder.ApplyConfiguration<PackingList>(configuration);
 		modelBuilder.ApplyConfiguration<PackingItem>(configuration);

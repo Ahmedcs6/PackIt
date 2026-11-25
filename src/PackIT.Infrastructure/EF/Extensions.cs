@@ -18,8 +18,8 @@ internal static class Extensions
 		IConfiguration configuration
 	)
 	{
-		services.AddScoped<IPackingListRepository, PostgresPackingListRepository>();
 		services.AddScoped<IPackingListReadService, PostgresPackingListReadService>();
+		services.AddScoped<IPackingListRepository, PostgresPackingListRepository>();
 		var options = configuration.GetOptions<PostgresOptions>("Postgres");
 		services.AddDbContext<ReadDbContext>(ctx => ctx.UseNpgsql(options.ConnectionString));
 		services.AddDbContext<WriteDbContext>(ctx => ctx.UseNpgsql(options.ConnectionString));

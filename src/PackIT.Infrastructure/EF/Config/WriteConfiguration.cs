@@ -40,5 +40,6 @@ internal sealed class WriteConfiguration
 		builder.Property(pi => pi.Name);
 		builder.Property(pi => pi.Quantity);
 		builder.Property(pi => pi.IsPacked);
+		builder.ToTable("PackingItems");
 	}
 }

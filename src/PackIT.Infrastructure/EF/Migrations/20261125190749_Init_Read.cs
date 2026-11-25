@@ -12,11 +12,11 @@ namespace PackIT.Infrastructure.EF.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "packing");
+                name: "Packing");
 
             migrationBuilder.CreateTable(
-                name: "packingLists",
-                schema: "packing",
+                name: "PackingLists",
+                schema: "Packing",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -26,12 +26,12 @@ namespace PackIT.Infrastructure.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_packingLists", x => x.Id);
+                    table.PrimaryKey("PK_PackingLists", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "packingItems",
-                schema: "packing",
+                name: "PackingItems",
+                schema: "Packing",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -42,20 +42,20 @@ namespace PackIT.Infrastructure.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_packingItems", x => x.Id);
+                    table.PrimaryKey("PK_PackingItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_packingItems_packingLists_PackingListId",
+                        name: "FK_PackingItems_PackingLists_PackingListId",
                         column: x => x.PackingListId,
-                        principalSchema: "packing",
-                        principalTable: "packingLists",
+                        principalSchema: "Packing",
+                        principalTable: "PackingLists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_packingItems_PackingListId",
-                schema: "packing",
-                table: "packingItems",
+                name: "IX_PackingItems_PackingListId",
+                schema: "Packing",
+                table: "PackingItems",
                 column: "PackingListId");
         }
 
@@ -63,12 +63,12 @@ namespace PackIT.Infrastructure.EF.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "packingItems",
-                schema: "packing");
+                name: "PackingItems",
+                schema: "Packing");
 
             migrationBuilder.DropTable(
-                name: "packingLists",
-                schema: "packing");
+                name: "PackingLists",
+                schema: "Packing");
         }
     }
 }

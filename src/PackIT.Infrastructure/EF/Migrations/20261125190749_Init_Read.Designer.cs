@@ -12,7 +12,7 @@ using PackIT.Infrastructure.EF.Contexts;
 namespace PackIT.Infrastructure.EF.Migrations
 {
     [DbContext(typeof(ReadDbContext))]
-    [Migration("20261123175428_Init_Read")]
+    [Migration("20261125190749_Init_Read")]
     partial class Init_Read
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace PackIT.Infrastructure.EF.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("packing")
+                .HasDefaultSchema("Packing")
                 .HasAnnotation("ProductVersion", "10.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -49,7 +49,7 @@ namespace PackIT.Infrastructure.EF.Migrations
 
                     b.HasIndex("PackingListId");
 
-                    b.ToTable("packingItems", "packing");
+                    b.ToTable("PackingItems", "Packing");
                 });
 
             modelBuilder.Entity("PackIT.Infrastructure.EF.Models.PackingListReadModel", b =>
@@ -71,7 +71,7 @@ namespace PackIT.Infrastructure.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("packingLists", "packing");
+                    b.ToTable("PackingLists", "Packing");
                 });
 
             modelBuilder.Entity("PackIT.Infrastructure.EF.Models.PackingItemReadModel", b =>

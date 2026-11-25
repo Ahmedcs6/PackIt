@@ -2,4 +2,4 @@ using PackIT.Shared.Abstraction.Commands;
 
 namespace PackIT.Application.Commands;
 
-public record DeletePackingList(Guid PackingListId) : ICommand;
+public record RemovePackingList(Guid PackingListId) : ICommand;

@@ -12,7 +12,7 @@ internal sealed class ReadConfiguration
 		EntityTypeBuilder<PackingListReadModel> builder
 	)
 	{
-		builder.ToTable("packingLists");
+		builder.ToTable("PackingLists");
 		builder.HasKey(pl => pl.Id);
 		builder
 			.Property(pl => pl.Localization)
@@ -24,6 +24,6 @@ internal sealed class ReadConfiguration
 		EntityTypeBuilder<PackingItemReadModel> builder
 	)
 	{
-		builder.ToTable("packingItems");
+		builder.ToTable("PackingItems");
 	}
 }
