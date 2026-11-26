@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using PackIT.Shared.Exceptions;
 using PackIT.Shared.Services;
@@ -10,6 +11,7 @@ public static class Extensions
 	public static IServiceCollection AddShared(this IServiceCollection services)
 	{
 		services.AddHostedService<AppInitializer>();
+		services.AddScoped<ExceptionMiddleware>();
 		return services;
 	}
 
