@@ -16,6 +16,7 @@ internal sealed class GetPackingListHandler : IQueryHandler<GetPackingList, Pack
 
 	public Task<PackingListDto?> HandleAsync(GetPackingList query) =>
 		_packingLists
+			.Include(pl => pl.Items)
 			.Where(pl => pl.Id == query.Id)
 			.Select(pl => pl.AsDto())
 			.AsNoTracking()

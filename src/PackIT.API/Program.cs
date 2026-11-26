@@ -7,13 +7,12 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddShared();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 var app = builder.Build();
-
-app.UseSwagger();
-app.UseSwaggerUI();
 app.MapControllers();
+app.MapOpenApi();
+app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "Swagger"));
 app.MapGet("/", () => "Hello World!");
 
 app.Run();

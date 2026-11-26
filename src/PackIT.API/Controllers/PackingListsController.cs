@@ -21,7 +21,7 @@ public class PackingListsController : BaseController
 		_queryDispatcher = queryDispatcher;
 	}
 
-	[HttpGet("{id:guid}")]
+	[HttpGet("{Id:guid}")]
 	public async Task<ActionResult<PackingListDto>> Get([FromRoute] GetPackingList query)
 	{
 		var result = await _queryDispatcher.QueryAsync(query);
