@@ -34,3 +34,11 @@ The solution is organized into the following projects:
 ## Disclaimer
 
 This is an educational project, not a production-ready application. Its primary purpose is to explore and practice software architecture, domain modeling, and design patterns in a real-world-style application.
+
+## Learning Reference
+
+This project was built as a learning exercise by following the concepts and implementation approach presented in the following tutorial:
+
+- [Original Tutorial](https://youtu.be/NzcZcim9tp8)
+
+The project is my own implementation and learning experience based on the tutorial. Some architectural decisions and implementation details may follow the original content.
