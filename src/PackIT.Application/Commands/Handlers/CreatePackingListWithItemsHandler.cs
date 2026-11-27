@@ -3,7 +3,7 @@ using PackIT.Application.Services;
 using PackIT.Domain.Factories;
 using PackIT.Domain.Repositories;
 using PackIT.Domain.ValueObjects;
-using PackIT.Shared.Abstraction.Commands;
+using PackIT.Shared.Abstractions.Commands;
 
 namespace PackIT.Application.Commands.Handlers;
 

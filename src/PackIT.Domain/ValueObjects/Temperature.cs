@@ -1,5 +1,5 @@
 using PackIT.Domain.Exceptions;
-using PackIT.Shared.Abstraction.Exceptions;
+using PackIT.Shared.Abstractions.Exceptions;
 
 namespace PackIT.Domain.ValueObjects;
 

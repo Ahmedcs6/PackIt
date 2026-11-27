@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Http;
-using PackIT.Shared.Abstraction.Exceptions;
+using PackIT.Shared.Abstractions.Exceptions;
 
 namespace PackIT.Shared.Exceptions;
 

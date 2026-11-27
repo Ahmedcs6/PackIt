@@ -1,4 +1,4 @@
-namespace PackIT.Shared.Abstraction.Exceptions;
+namespace PackIT.Shared.Abstractions.Exceptions;
 
 public abstract class PackItException : Exception
 {

@@ -1,4 +1,4 @@
-namespace PackIT.Shared.Abstraction.Commands;
+namespace PackIT.Shared.Abstractions.Commands;
 
 public interface ICommandDispatcher
 {

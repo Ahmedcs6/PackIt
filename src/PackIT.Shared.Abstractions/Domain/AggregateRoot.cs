@@ -1,4 +1,4 @@
-namespace PackIT.Shared.Abstraction.Domain;
+namespace PackIT.Shared.Abstractions.Domain;
 
 public abstract class AggregateRoot<T>
 {
@@ -19,13 +19,13 @@ public abstract class AggregateRoot<T>
 
 	protected void AddEvent(IDomainEvent @event)
 	{
-		if (!_events.Any() && !_versionIncremented)
-		{
-			Version++;
-			_versionIncremented = true;
-			_events.Add(@event);
-		}
+		IncrementVersion();
+		_events.Add(@event);
 	}
 
-	protected void ClearEvents() => _events.Clear();
+	public void ClearEvents()
+	{
+		_events.Clear();
+		_versionIncremented = false;
+	}
 }

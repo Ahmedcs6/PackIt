@@ -3,7 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PackIT.Domain\PackIT.Domain.csproj" />
     <ProjectReference Include="..\PackIT.Shared\PackIT.Shared.csproj" />
-    <ProjectReference Include="..\PackIT.Shared.Abstraction\PackIT.Shared.Abstraction.csproj" />
+    <ProjectReference Include="..\PackIT.Shared.Abstractions\PackIT.Shared.Abstractions.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Logging;
-using PackIT.Shared.Abstraction.Commands;
+using PackIT.Shared.Abstractions.Commands;
 
 namespace PackIT.Infrastructure.Logging;
 

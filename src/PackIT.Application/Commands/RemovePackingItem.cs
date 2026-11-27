@@ -1,4 +1,4 @@
-using PackIT.Shared.Abstraction.Commands;
+using PackIT.Shared.Abstractions.Commands;
 
 namespace PackIT.Application.Commands
 {

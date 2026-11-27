@@ -1,6 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using PackIT.Shared.Abstraction.Queries;
+using PackIT.Shared.Abstractions.Queries;
 
 namespace PackIT.Shared.Queries;
 

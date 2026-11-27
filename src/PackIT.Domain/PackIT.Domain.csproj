@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\PackIT.Shared.Abstraction\PackIT.Shared.Abstraction.csproj" />
+    <ProjectReference Include="..\PackIT.Shared.Abstractions\PackIT.Shared.Abstractions.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

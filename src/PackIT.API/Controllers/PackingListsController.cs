@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using PackIT.Application.Commands;
 using PackIT.Application.DTO;
 using PackIT.Application.Queries;
-using PackIT.Shared.Abstraction.Commands;
-using PackIT.Shared.Abstraction.Queries;
+using PackIT.Shared.Abstractions.Commands;
+using PackIT.Shared.Abstractions.Queries;
 
 namespace PackIT.API.Controllers;
 
@@ -44,28 +44,28 @@ public class PackingListsController : BaseController
 		return CreatedAtAction(nameof(Get), new { id = command.Id }, null);
 	}
 
-	[HttpPut("{packingListId:guid}/items")]
+	[HttpPut("{PackingListId:guid}/items")]
 	public async Task<ActionResult> Put([FromBody] AddPackingItem command)
 	{
 		await _commandDispatcher.DispatchAsync(command);
 		return Ok();
 	}
 
-	[HttpPut("{packingListId:guid}/items/{name}/pack")]
+	[HttpPut("{PackingListId:guid}/items/{Name}/pack")]
 	public async Task<ActionResult> Put([FromBody] PackItem command)
 	{
 		await _commandDispatcher.DispatchAsync(command);
 		return Ok();
 	}
 
-	[HttpDelete("{packingListId:guid}/items/{name}")]
+	[HttpDelete("{PackingListId:guid}/items/{Name}")]
 	public async Task<ActionResult> Delete([FromBody] RemovePackingItem command)
 	{
 		await _commandDispatcher.DispatchAsync(command);
 		return Ok();
 	}
 
-	[HttpDelete("{packingListId:guid}")]
+	[HttpDelete("{PackingListId:guid}")]
 	public async Task<ActionResult> Delete([FromBody] RemovePackingList command)
 	{
 		await _commandDispatcher.DispatchAsync(command);

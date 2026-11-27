@@ -4,7 +4,10 @@
     <Project Path="src/PackIT.Application/PackIT.Application.csproj" />
     <Project Path="src/PackIT.Domain/PackIT.Domain.csproj" />
     <Project Path="src/PackIT.Infrastructure/PackIT.Infrastructure.csproj" />
-    <Project Path="src/PackIT.Shared.Abstraction/PackIT.Shared.Abstraction.csproj" />
+    <Project Path="src/PackIT.Shared.Abstractions/PackIT.Shared.Abstractions.csproj" />
     <Project Path="src/PackIT.Shared/PackIT.Shared.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PackIT.UnitTests/PackIT.UnitTests.csproj" />
   </Folder>
 </Solution>

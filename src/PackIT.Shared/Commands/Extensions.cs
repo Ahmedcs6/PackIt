@@ -1,6 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using PackIT.Shared.Abstraction.Commands;
+using PackIT.Shared.Abstractions.Commands;
 
 namespace PackIT.Shared.Commands;
 
